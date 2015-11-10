@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ultimate Optimizer</title>
+	<link rel="stylesheet" type="text/css" href="css/materialize.css"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/materialize.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/controller/MainController.js"></script>
+</head>
+<body ng-app="ultimateOptimizer">
+	<div ng-controller="MainController">
+		<div class="container">
+			<form>
+				First Name: <input type="text" ng-model="data.firstName"/>
+				Last Name: <input type="text" ng-model="data.lastName"/>
+				<button class="btn" ng-click="save(data)">Save</button>
+			</form>			
+			<div class="card-panel">
+				{{ data | json }}
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>
