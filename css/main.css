@@ -1,0 +1,37 @@
+.container {
+	margin: 0 10%px;
+	width: 90%;
+}
+
+div {
+/*	border: solid red 1px;
+*/}
+
+body {
+	height: 100vh;
+	overflow: hidden;
+}
+
+#site-header {
+	background: #27ae60;
+	margin: 0;
+}
+
+#site-title-wrapper {
+	padding: 20px 0;
+}
+
+#site-title {
+	margin: 0;
+	color: white;
+	font-weight: bold;
+}
+
+#main-content-wrapper {
+	height: 100vh;
+}
+
+#right-panel {
+	height: 100vh;
+	background: #ecf0f1;
+}

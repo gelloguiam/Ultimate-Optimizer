@@ -3,24 +3,37 @@
 <head>
 	<title>Ultimate Optimizer</title>
 	<link rel="stylesheet" type="text/css" href="css/materialize.css"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/materialize.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/controller/MainController.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body ng-app="ultimateOptimizer">
-	<div ng-controller="MainController">
-		<div class="container">
-			<form>
-				First Name: <input type="text" ng-model="data.firstName"/>
-				Last Name: <input type="text" ng-model="data.lastName"/>
-				<button class="btn" ng-click="save(data)">Save</button>
-			</form>			
-			<div class="card-panel">
-				{{ data | json }}
-			</div>
-			
+
+	<div class="row" id="site-header">
+		<div class="container" id="site-title-wrapper">
+			<h3 id="site-title" class="left-align">Ultimate Optimizer</h3>
 		</div>
 	</div>
+
+	<div class="row" id="main-content-wrapper">
+		<div class="col s8">
+			<div class="container">
+				Hello
+			</div>
+		</div>
+		<div class="col s4" id="right-panel">
+			<div class="container">
+				<div class="card-panel">
+					<span clas="card-title">
+						<p class="green-text center-align">Summary</p>						
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
