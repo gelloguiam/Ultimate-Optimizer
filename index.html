@@ -11,29 +11,30 @@
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body ng-app="ultimateOptimizer">
+	<div id="main-panel" ng-controller="MainController" ng-init="loadData()">
 
-	<div class="row" id="site-header">
-		<div class="container" id="site-title-wrapper">
-			<h3 id="site-title" class="left-align">Ultimate Optimizer</h3>
-		</div>
-	</div>
-
-	<div class="row" id="main-content-wrapper">
-		<div class="col s8">
-			<div class="container">
-				Hello
+		<div class="header" id="site-header">
+			<div class="container" id="site-title-wrapper">
+				<h4 id="site-title" class="left-align">Ultimate Optimizer</h4>
 			</div>
 		</div>
-		<div class="col s4" id="right-panel">
-			<div class="container">
-				<div class="card-panel">
-					<span clas="card-title">
-						<p class="green-text center-align">Summary</p>						
-					</span>
+
+		<div class="section" id="main-content-wrapper">
+			<div class="row">
+				<div class="container">
 				</div>
 			</div>
 		</div>
+
+		<div class="footer" id="site-footer">
+			Hello
+		</div>
+
 	</div>
 
+	<div class="row" id="hover-panel" ng-controller="MainController">
+		
+	</div>
+	
 </body>
 </html>

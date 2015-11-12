@@ -12,26 +12,47 @@ body {
 	overflow: hidden;
 }
 
+#main-panel {
+}
+
+/* HEADER PANEL */
 #site-header {
+	height: 10vh;
 	background: #27ae60;
 	margin: 0;
 }
 
-#site-title-wrapper {
-	padding: 20px 0;
-}
-
 #site-title {
+	padding: 15px 0;
 	margin: 0;
 	color: white;
 	font-weight: bold;
 }
 
+
+
+/* MIDDLE PANEL */
 #main-content-wrapper {
-	height: 100vh;
+	height: 80vh;
 }
 
-#right-panel {
-	height: 100vh;
-	background: #ecf0f1;
+
+
+/* FOOTER PANEL */
+#site-footer {
+	height: 10vh;
+	background: #27ae60;
+	margin: 0;
 }
+
+
+
+
+
+/* HOVER PANEL */
+#hover-panel {
+	position: absolute;
+	height: 100vh;
+	background: black;
+}
+
