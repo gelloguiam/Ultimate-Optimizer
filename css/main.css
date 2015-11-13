@@ -1,86 +1,71 @@
-.container {
-	width: 90%;
-}
-
-.card-panel {
-	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+body {
+	height: 100vh;
+	color: #3E4651;
+	overflow: hidden;
+	background: url("../img/footer_lodyas.png");
 }
 
 div {
 /*	border: solid red 1px;
 */}
 
-body {
-	height: 100vh;
-	color: #3E4651;
-	overflow: hidden;
+.container {
+	width: 90%;
 }
 
-.content {
-	text-align: justify;
+.row {
+	margin: 0;
 }
 
 /* TOP-PANEL */
 #top-panel {
 	background: #27AE60;
-	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3)
 }
 
 #site-header {
+	width: 90%;
+	margin-left: 5%;
 }
 
 #site-title {
-	color: white;
 	font-weight: bold;
-	margin-left: -20px;
-}
-
-
-
-
-
-/* LEFT PANEL */
-#left-panel {
-	height: 100vh;
-}
-
-#table-wrapper {
-	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3)
-	
-}
-
-#table-title {
-	padding: 20px;
-	font-weight: bolder;
-	background: #34495E;
+	float: left;
 	color: white;
-	z-index: 200;
 }
 
-#table-content {
+.button-collapse {
+	font-size: 30px;
+	color: white;
+	float: right;
+}
+
+
+
+
+/* ELEMENT PANEL */
+#element-panel {
+	background: rgba(0,0,0,0.3);
+}
+
+#element-wrapper {
+	width: 90%;
+	margin-left: 5%;
+	padding: 20px 0;
+}
+
+#element-wrapper .col {
 	padding: 20px;
-	display: none;
-	background: #ECF0F1;
-	line-height: 10pt;
-	font-size: 10pt;
 }
 
-td {
-	min-height: 5px;
-}
-
-th {
-	color: #34495E;
+.element-panel {
+	text-align: center;	
+	font-weight: bolder;
+	font-size: 20pt;
 }
 
 
 
 
-/* LEFT PANEL */
-#right-panel {
-	padding: 20px;
-	height: 100vh;
-}
 
 
 
@@ -92,6 +77,7 @@ th {
 	width: 100vw;
 	background: rgba(0,0,0,0.7);
 	z-index: 100;
+	display: none;
 }
 
 #hover-panel .card-panel {

@@ -43,69 +43,47 @@
 
 
 	<div id="content-wrapper" class="row">
-		<div class="col s12" id="top-panel">
-			<div id="site-header" class="container">
-				<h4 id="site-title" class="left-align">
+
+	 	<div id="slide-out" class="side-nav">
+	 	</div>
+
+	  	<!--TOP PANEL-->
+  		<div class="row" id="top-panel">
+			<div id="site-header" class="col s12">
+				<h5 id="site-title">
 					Ultimate Optimizer
-				</h4>
-			</div>			
+				</h5>
+				<a href="#" data-activates="slide-out" class="button-collapse show-on-large align-right">
+		  			<i class="mdi-navigation-menu"></i>
+		  		</a>
+			</div>	
 		</div>
 
-		<div class="col s8" id="left-panel">
-			<div class="container">
-				<div class="section">
-					<p id="site-description" class="content">
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-					</p>
-				</div>
+	  	<!--ELEMENT PANEL-->
+	  	<div class="row" id="element-panel">
+	  		<div class="row" id="element-wrapper">
+		  		<div class="col s2">
+		  			<div class="card-panel element-panel">As</div>
+		  		</div>	  				
+		  		<div class="col s2">
+		  			<div class="card-panel element-panel">Cd</div>
+		  		</div>	  				
+		  		<div class="col s2">
+		  			<div class="card-panel element-panel">Cr 6+</div>
+		  		</div>	  				
+		  		<div class="col s2">
+		  			<div class="card-panel element-panel">Cu</div>
+		  		</div>	  				
+		  		<div class="col s2">
+		  			<div class="card-panel element-panel">Pb</div>
+		  		</div>	  				
+		  		<div class="col s2">
+		  			<div class="card-panel element-panel">Hg</div>
+		  		</div>
 
-				<div id="table-wrapper">
-					
-					<div id="table-title">
-						Element Costing
-					</div>
-					<div id="table-content">
-						<table class="highlight">
-							<thead>							
-							<tr>
-								<th>Quality Component</th>
-								<th>Cost of Remediation in 1 L of Water (Php)</th>
-								<th>Amount of Remediation in 1 L of Water (mg/L)</th>
-								<th>Minimum Standard Requirement (mg/L)</th>
-								<th>Maximum Standard Requirement (mg/L)</th>
-							</tr>
-							</thead>
-							<tr ng-repeat="item in contents.components">
-								<td>{{ item.element }}</td>
-								<td>{{ item.remCost }}</td>
-								<td>{{ item.remAmt }}</td>
-								<td>{{ item.minStand }}</td>
-								<td>{{ item.maxStand }}</td>
-							</tr>
-						</table>
-					</div>
-			
-				</div>
-				<div id="station-panel">
-					<div class="id">
-						<div class="col s2"></div>
-						<div class="col s2"></div>
-					</div>
-				</div>
-				
-			</div>
+	  		</div>
+	  	</div>
 
-		</div>
-
-		<div class="col s4" id="right-panel">
-			<div class="container">
-				<div class="card-panel">
-					<div class="card-title">
-						<h6>SUMMARY</h6>	
-					</div>
-				</div>
-			</div>
-		</div>
 
 	</div>
 

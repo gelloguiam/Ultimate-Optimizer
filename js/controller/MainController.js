@@ -2,17 +2,20 @@ var ulopt = angular.module('ultimateOptimizer', []);
 
 ulopt.controller('MainController', function($scope){
 	$scope.contents = null;
+	
+	$scope.print = function(){
+		console.log($scope.contents);
+	}
 
-	$scope.loadData = function() {
-		$.getJSON("data/data.json", function(data) 	{
-			console.log(data);
+	$scope.loadData = function(){
+		$.getJSON("data/data.json", function(data) {
+		 	$scope.contents = data;
 			$scope.$apply(function(){
 				$scope.contents = data;
 			});
 		});
+	};
 
-		console.log($scope.contents);
-	}
 
 	$scope.goal = null;
 

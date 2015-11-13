@@ -1,10 +1,8 @@
 $(document).ready(function(){
 
-	$("thead").click(function(){
-	});
-
-	$("#table-title").click(function(){
-		$("#table-content").slideToggle();
+	$(".button-collapse").sideNav({
+		menuWidth: 500,
+		edge: 'right'
 	});
 
 });
