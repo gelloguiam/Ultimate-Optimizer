@@ -1,3 +1,0 @@
-Simplex = function() {
-  
-}
