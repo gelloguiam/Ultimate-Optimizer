@@ -1,6 +1,9 @@
 .container {
-	margin: 0 10%px;
 	width: 90%;
+}
+
+.card-panel {
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 div {
@@ -9,42 +12,75 @@ div {
 
 body {
 	height: 100vh;
+	color: #3E4651;
 	overflow: hidden;
 }
 
-#main-panel {
+.content {
+	text-align: justify;
 }
 
-/* HEADER PANEL */
+/* TOP-PANEL */
+#top-panel {
+	background: #27AE60;
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3)
+}
+
 #site-header {
-	height: 10vh;
-	background: #27ae60;
-	margin: 0;
 }
 
 #site-title {
-	padding: 15px 0;
-	margin: 0;
 	color: white;
 	font-weight: bold;
+	margin-left: -20px;
 }
 
 
 
-/* MIDDLE PANEL */
-#main-content-wrapper {
-	height: 80vh;
+
+
+/* LEFT PANEL */
+#left-panel {
+	height: 100vh;
+}
+
+#table-wrapper {
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3)
+	
+}
+
+#table-title {
+	padding: 20px;
+	font-weight: bolder;
+	background: #34495E;
+	color: white;
+	z-index: 200;
+}
+
+#table-content {
+	padding: 20px;
+	display: none;
+	background: #ECF0F1;
+	line-height: 10pt;
+	font-size: 10pt;
+}
+
+td {
+	min-height: 5px;
+}
+
+th {
+	color: #34495E;
 }
 
 
 
-/* FOOTER PANEL */
-#site-footer {
-	height: 10vh;
-	background: #27ae60;
-	margin: 0;
-}
 
+/* LEFT PANEL */
+#right-panel {
+	padding: 20px;
+	height: 100vh;
+}
 
 
 
@@ -53,6 +89,49 @@ body {
 #hover-panel {
 	position: absolute;
 	height: 100vh;
-	background: black;
+	width: 100vw;
+	background: rgba(0,0,0,0.7);
+	z-index: 100;
 }
 
+#hover-panel .card-panel {
+	margin-top: 20vh;
+	width: 70vw;
+	margin-left: 10vw;
+	padding: 20px 80px;
+	color: #34495E;
+}
+
+#or-wrapper {
+	text-align: center;
+}
+
+.goal-option {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	background: #bdc3c7;
+	color: white;
+	margin-left: 5px;
+	margin: 0 20px;
+	cursor: hand;
+	font-weight: bolder;
+}
+
+.goal-option:hover {
+	background: #27AE60;
+}
+
+#goal-max {
+	float: left;
+}
+
+#goal-min {
+	float: right;
+}
+
+
+#goal-or {
+	height: 200px;
+	font-weight: bolder;
+}

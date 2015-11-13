@@ -11,30 +11,104 @@
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body ng-app="ultimateOptimizer">
-	<div id="main-panel" ng-controller="MainController" ng-init="loadData()">
+<div ng-controller="MainController">
 
-		<div class="header" id="site-header">
-			<div class="container" id="site-title-wrapper">
-				<h4 id="site-title" class="left-align">Ultimate Optimizer</h4>
+	<!-- Goal Choice Hover -->
+	<div class="row" id="hover-panel">
+		<div class="row">
+			<div class="container">
+				<div class="card-panel" id="hover-panel-card">
+					<div class="section">			
+						<h5>Choose your goal.</h5>
+					</div>
+					<div class="row center-align section" id="goal-choice-panel">
+						<div class="col s5">
+							<div class="goal-option" id="goal-min" ng-click="setGoalMIN()">
+							<br><br><br><h5>Minimize</h5>	
+							</div>
+						</div>
+						<div class="col s2" id="goal-or">
+							<br><br><br><br><p>OR</p>
+						</div>
+						<div class="col s5">
+							<div class="goal-option" id="goal-max" ng-click="setGoalMAX()">	
+							<br><br><br><h5>Maximize</h5>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="section" id="main-content-wrapper">
-			<div class="row">
-				<div class="container">
+
+	<div id="content-wrapper" class="row">
+		<div class="col s12" id="top-panel">
+			<div id="site-header" class="container">
+				<h4 id="site-title" class="left-align">
+					Ultimate Optimizer
+				</h4>
+			</div>			
+		</div>
+
+		<div class="col s8" id="left-panel">
+			<div class="container">
+				<div class="section">
+					<p id="site-description" class="content">
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+					</p>
+				</div>
+
+				<div id="table-wrapper">
+					
+					<div id="table-title">
+						Element Costing
+					</div>
+					<div id="table-content">
+						<table class="highlight">
+							<thead>							
+							<tr>
+								<th>Quality Component</th>
+								<th>Cost of Remediation in 1 L of Water (Php)</th>
+								<th>Amount of Remediation in 1 L of Water (mg/L)</th>
+								<th>Minimum Standard Requirement (mg/L)</th>
+								<th>Maximum Standard Requirement (mg/L)</th>
+							</tr>
+							</thead>
+							<tr ng-repeat="item in contents.components">
+								<td>{{ item.element }}</td>
+								<td>{{ item.remCost }}</td>
+								<td>{{ item.remAmt }}</td>
+								<td>{{ item.minStand }}</td>
+								<td>{{ item.maxStand }}</td>
+							</tr>
+						</table>
+					</div>
+			
+				</div>
+				<div id="station-panel">
+					<div class="id">
+						<div class="col s2"></div>
+						<div class="col s2"></div>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+
+		<div class="col s4" id="right-panel">
+			<div class="container">
+				<div class="card-panel">
+					<div class="card-title">
+						<h6>SUMMARY</h6>	
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="footer" id="site-footer">
-			Hello
-		</div>
-
 	</div>
 
-	<div class="row" id="hover-panel" ng-controller="MainController">
-		
-	</div>
-	
+</div>
 </body>
 </html>
