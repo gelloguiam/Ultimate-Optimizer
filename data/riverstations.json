@@ -1,0 +1,63 @@
+{
+
+	"stations" : [
+
+		{
+			"name"		:	"500m to MeyMZ",
+			"volume"	:	"50000000" 
+		},
+
+		{
+			"name"		:	"Caingin Bridge",
+			"volume"	:	"50500000" 
+		},
+
+		{
+			"name"		:	"Expressway Bridge",
+			"volume"	:	"19850000" 
+		},
+
+		{
+			"name"		:	"McArthur Bridge",
+			"volume"	:	"46000000" 
+		},
+
+		{
+			"name"		:	"McArthur Bridge II",
+			"volume"	:	"48750000" 
+		},
+
+		{
+			"name"		:	"Meyc-Mar Mixing Zone",
+			"volume"	:	"570000000" 
+		},
+
+		{
+			"name"		:	"Meymart Bridge",
+			"volume"	:	"37000000" 
+		},
+
+		{
+			"name"		:	"Perez Bridge",
+			"volume"	:	"1440000" 
+		},
+
+		{
+			"name"		:	"Polo",
+			"volume"	:	"8010000" 
+		},
+
+ 		{
+			"name"		:	"Tawiran Bridge",
+			"volume"	:	"241500000" 
+		},
+
+ 		{
+			"name"		:	"Viente Reales Bridge",
+			"volume"	:	"3540000" 
+		} 
+
+	],
+
+	"totalVolume" : "1073050000"	
+}

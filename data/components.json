@@ -1,0 +1,76 @@
+{
+	"components" : [
+
+		{
+			"name"		:	"Arsenic",
+			"element"	:	"As",
+			"remCost"	:	"0.06",
+			"remAmt"	:	"0.04",
+			"minStand"	:	"0",
+			"maxStand"	:	"0.05",
+			
+			"500m to MeyMZ"			:	["10.76","8.99","0","8.99","8.99"],
+			"Caingin Bridge"		:	["12.69","8.99","0","8.99","8.99"],
+			"Expressway Bridge"		:	["8.99","8.99","0","8.99","8.99"],
+			"Mc Arthur Bridge II"	:	["8.99","8.99","0","8.99","8.99"],
+			"McArthur Bridge"		:	["8.99","8.99","8.99","8.99","8.99"],
+			"Caingin Bridge"		:	["12.69","8.99","0","8.99","8.99"],
+			"Meyc-Mar Mixing Zone"	:	["12.69","8.99","0","8.99","8.99"],
+			"Meymart Bridge"		:	["12.47","8.99","0","8.99","8.99"],
+			"Perez Bridge"			:	["8.99","8.99","0","8.99","8.99"],
+			"Polo Bridge"			:	["8.99","8.99","0","8.99","8.99"],
+			"Tawiran Bridge"		:	["8.99","8.99","0","8.99","8.99"],
+
+			"Month"					:	["March", "April", "June", "July", "October"],
+			"Total"					:	["121.46","106.9","25.94","98.89","98.89"]
+
+		},
+
+		{
+			"name"		:	"Cadmium",
+			"element"	:	"Cd",
+			"remCost"	:	"0.35",
+			"remAmt"	:	"0.08",
+			"minStand"	:	"0",
+			"maxStand"	:	"0.01"
+		},
+
+		{
+			"name"	:	"Chromium",
+			"element"	:	"Cr 6+",
+			"remCost"	:	"1.47",
+			"remAmt"	:	"0.02",
+			"minStand"	:	"0",
+			"maxStand"	:	"0.05"
+		},
+
+		{
+			"name"		:	"Copper",
+			"element"	:	"Cu",
+			"remCost"	:	"0.47",
+			"remAmt"	:	"0.02",
+			"minStand"	:	"0",
+			"maxStand"	:	"0.05"
+		},
+
+		{
+			"name"		:	"Lead",
+			"element"	:	"Pb",
+			"remCost"	:	"0.23",
+			"remAmt"	:	"0.03",
+			"minStand"	:	"0",
+			"maxStand"	:	"0.06"
+		},
+
+		{
+			"name"		:	"Mercury",
+			"element"	:	"Hg",
+			"remCost"	:	"0.02",
+			"remAmt"	:	"0.45",
+			"minStand"	:	"0",
+			"maxStand"	:	"0.002"
+		}
+
+	]
+
+}

@@ -51,23 +51,62 @@ div {
 	width: 90%;
 	margin-left: 5%;
 	padding: 20px 0;
+	text-align: center;
 }
 
 #element-wrapper .col {
 	padding: 20px;
 }
 
-.element-panel {
+.element-symbol {
 	text-align: center;	
 	font-weight: bolder;
 	font-size: 20pt;
+	height: 120px;
+	width: 120px;
+	border-radius: 100%;
+	background: #656565;
+	color: white;
+	border: solid 3px #ecf0f1;
+	margin: auto;
+	cursor: hand;
 }
 
+.element-symbol:hover {
+	background: #3498db;	
+}
 
+#line {
+	position: absolute;
+	top: 120px;
+	right: 10%;
+	z-index: -10;
+	height: 2px;
+	width: 80%;
+	height: auto;
+	text-align: center;
+}
 
+.element-name {
+	font-weight: bolder;
+}
 
+.element-details {
+	display: none;
+	background: #ecf0f1;
+}
 
+.element-details:hover {
+	background: white;
+}
 
+.element-row {
+	line-height: 2px;
+}
+
+.detail-subhead {
+	font-size: 8pt;
+}
 
 
 /* HOVER PANEL */
@@ -75,7 +114,7 @@ div {
 	position: absolute;
 	height: 100vh;
 	width: 100vw;
-	background: rgba(0,0,0,0.7);
+	background: rgba(0,0,0,0.6);
 	z-index: 100;
 	display: none;
 }

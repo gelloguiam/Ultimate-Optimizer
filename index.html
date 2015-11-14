@@ -45,6 +45,7 @@
 	<div id="content-wrapper" class="row">
 
 	 	<div id="slide-out" class="side-nav">
+			{{stations | json}}
 	 	</div>
 
 	  	<!--TOP PANEL-->
@@ -62,27 +63,45 @@
 	  	<!--ELEMENT PANEL-->
 	  	<div class="row" id="element-panel">
 	  		<div class="row" id="element-wrapper">
-		  		<div class="col s2">
-		  			<div class="card-panel element-panel">As</div>
-		  		</div>	  				
-		  		<div class="col s2">
-		  			<div class="card-panel element-panel">Cd</div>
-		  		</div>	  				
-		  		<div class="col s2">
-		  			<div class="card-panel element-panel">Cr 6+</div>
-		  		</div>	  				
-		  		<div class="col s2">
-		  			<div class="card-panel element-panel">Cu</div>
-		  		</div>	  				
-		  		<div class="col s2">
-		  			<div class="card-panel element-panel">Pb</div>
-		  		</div>	  				
-		  		<div class="col s2">
-		  			<div class="card-panel element-panel">Hg</div>
+		  		<div class="col s12" id="line">
+		  			<hr noshade>
+		  		</div>
+		  		<div class="col s2" ng-repeat="item in components.components">
+		  			<div class="element-symbol hoverable">
+		  				<h5>
+		  					<br>{{ item.element }}
+						</h5>
+		  			</div>
+		  			<div class="card-panel hoverable element-details">
+		  				<p class="element-name">
+		  				{{ item.name }}		  					
+		  				</p>
+		  				<div class="element-row">
+		  					<p class="detail-subhead">Remediation Cost</p>
+		  					<p>{{ item.remCost | currency : "P " }}</p>
+		  				</div>
+		  				<div class="element-row">
+		  					<p class="detail-subhead">Remediation Amount</p>
+		  					<p>{{ item.remAmt }} mg/L</p>
+		  				</div>
+		  				<div class="element-row">
+		  					<p class="detail-subhead">Min Standard</p>
+		  					<p>{{ item.minStand }} mg/L</p>
+		  				</div>
+		  				<div class="element-row">
+		  					<p class="detail-subhead">Max Standard</p>
+		  					<p>{{ item.maxStand }} mg/L</p>
+		  				</div>
+		  			</div>
 		  		</div>
 
 	  		</div>
 	  	</div>
+
+
+	  	<!--ELEMENT PANEL-->
+	  	<div class="row" id="station-panel">
+		</div>	  	
 
 
 	</div>
