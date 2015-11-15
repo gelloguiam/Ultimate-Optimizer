@@ -59,5 +59,7 @@
 
 	],
 
-	"totalVolume" : "1073050000"	
+	"totalVolume" : "1073050000",
+
+	"months" : ["March", "April", "June", "July"]
 }

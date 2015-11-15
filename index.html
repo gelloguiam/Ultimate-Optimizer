@@ -7,8 +7,6 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/materialize.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
-	<script type="text/javascript" src="js/controller/MainController.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body ng-app="ultimateOptimizer">
 <div ng-controller="MainController">
@@ -45,15 +43,77 @@
 	<div id="content-wrapper" class="row">
 
 	 	<div id="slide-out" class="side-nav">
+	 		<div class="container">
+
+	 			<div class="section">
+	 				<h5>Summary</h5>
+	 			</div>
+
+	 			<div class="row card summary-card">
+		 			<div class="col s6" id="goal-summary">
+			 			<div class="row">
+			 				<br>
+			 				<h6>Optimization Goal</h6>
+			 			</div>
+			 			<div>
+			 				{{ goal }}
+			 			</div>
+			 		</div>
+
+			 		<div class="col s6" id="month-summary">	 	
+			 			<div class="row">
+			 				<br>
+		 					<h6>Month Concern</h6>
+		 				</div>
+		 				<div>
+		 					{{month}}
+		 				</div>
+		 			</div>
+
+	 			</div>
+
+	 			<br>
+
+	 			<div class="row card summary-card">
+
+		 			<div class="col s6" id="component-summary">
+			 			<div class="row">
+			 				<br>
+			 				<h6>Active Components</h6>
+			 			</div>
+			 			<ul class="">
+				 			<li ng-repeat="item in activeComponets">
+				 				{{ item }}
+				 			</li>
+			 			</ul>
+			 		</div>
+
+			 		<div class="col s6" id="station-summary">	 	
+			 			<div class="row">
+			 				<br>
+		 					<h6>Active Stations</h6>
+		 				</div>
+			 			<ul class="">
+				 			<li ng-repeat="item in activeStations">
+				 				{{ item }}
+				 			</li>
+			 			</ul>
+		 			</div>
+	 			</div>
+
+	 		</div>
 	 	</div>
 
 	  	<!--TOP PANEL-->
-  		<div class="row" id="top-panel">
+  		<div class="row card" id="top-panel">
 			<div id="site-header" class="col s12">
 				<h5 id="site-title">
 					Ultimate Optimizer
 				</h5>
-				<a href="#" data-activates="slide-out" class="button-collapse show-on-large align-right">
+				<a href="#" 
+					ng-click="updateStatus()"
+					data-activates="slide-out"
+					class="button-collapse show-on-large align-right">
 		  			<i class="mdi-navigation-menu"></i>
 		  		</a>
 			</div>	
@@ -65,45 +125,45 @@
 		  		<div class="col s12" id="line">
 		  			<hr noshade>
 		  		</div>
-		  		<div class="col s2" ng-repeat="item in components.components">
-		  			<div class="element-symbol hoverable">
-		  				<h5>
-		  					<br>{{ item.element }}
-						</h5>
-		  			</div>
-		  			<div class="card-panel hoverable element-details">
-		  				<p class="element-name">
-		  				{{ item.name }}		
-		  				</p>
-		  				<div class="element-row">
-		  					<p class="detail-subhead">Remediation Cost</p>
-		  					<p>{{ item.remCost | currency : "P " }}</p>
-		  				</div>
-		  				<div class="element-row">
-		  					<p class="detail-subhead">Remediation Amount</p>
-		  					<p>{{ item.remAmt }} mg/L</p>
-		  				</div>
-		  				<div class="element-row">
-		  					<p class="detail-subhead">Min Standard</p>
-		  					<p>{{ item.minStand }} mg/L</p>
-		  				</div>
-		  				<div class="element-row">
-		  					<p class="detail-subhead">Max Standard</p>
-		  					<p>{{ item.maxStand }} mg/L</p>
-		  				</div>
-		  			</div>
+				<div class="col s2" ng-repeat="item in components.components" class="item-wrapper">
+			  		<components
+			  			item="item"
+			  			status="componentsStatus[$index]"
+			  			ng-click="toggleComponent($index)"
+			  			>
+			  		</components>
 		  		</div>
-
 	  		</div>
 	  	</div>
 
-
-	  	<!--ELEMENT PANEL-->
+	  	<!--STATIONS PANEL-->
 	  	<div class="row" id="station-panel">
+	  		<div class="row" id="station-wrapper">
+	  			<div class="col s2">
+	  				<div ng-repeat="month in stations.months">
+	  					{{month}}
+	  				</div>
+	  			</div>
+	  			<div class="col s10">
+	  				<div class="row">
+			  			<div class="col s2" ng-repeat="station in stations.stations">
+			  				<stations station="station"
+			  					ng-click="toggleStation($index)"
+			  				></stations>
+			  			</div>
+	  				</div>
+	  			</div>
+	  		</div>
 		</div>	  	
 
 
 	</div>
+
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controller/MainController.js"></script>
+	<script type="text/javascript" src="js/directives/components.js"></script>
+	<script type="text/javascript" src="js/directives/stations.js"></script>
 
 </div>
 </body>

@@ -6,7 +6,7 @@ body {
 }
 
 div {
-/*	border: solid red 1px;
+/*	border: solid 1px red;
 */}
 
 .container {
@@ -17,9 +17,35 @@ div {
 	margin: 0;
 }
 
+
+
+
+/* SUMMARY */
+#slide-out {
+	padding: 20px;
+}
+
+.summary-card {
+	background: #3498db;
+	color: white;
+	padding: 0;
+}
+
+.summary-card h6 {
+	text-align: center;
+	font-size: 15pt;
+}
+
+#station-summary {
+	background: #2980b9;
+}
+
+
+
+
 /* TOP-PANEL */
 #top-panel {
-	background: #27AE60;
+	background: #27ae60;
 }
 
 #site-header {
@@ -50,35 +76,16 @@ div {
 #element-wrapper {
 	width: 90%;
 	margin-left: 5%;
-	padding: 20px 0;
 	text-align: center;
 }
 
 #element-wrapper .col {
-	padding: 20px;
-}
-
-.element-symbol {
-	text-align: center;	
-	font-weight: bolder;
-	font-size: 20pt;
-	height: 120px;
-	width: 120px;
-	border-radius: 100%;
-	background: #656565;
-	color: white;
-	border: solid 3px #ecf0f1;
-	margin: auto;
-	cursor: hand;
-}
-
-.element-symbol:hover {
-	background: #3498db;	
+	padding: 15px;
 }
 
 #line {
 	position: absolute;
-	top: 120px;
+	top: 150px;
 	right: 10%;
 	z-index: -10;
 	height: 2px;
@@ -87,26 +94,65 @@ div {
 	text-align: center;
 }
 
-.element-name {
-	font-weight: bolder;
-}
-
-.element-details {
-	display: none;
-	background: #ecf0f1;
-}
-
-.element-details:hover {
+.element {
 	background: white;
+	padding: 10px;
 }
 
-.element-row {
-	line-height: 2px;
+.element-symbol {
+	font-size: 20pt;
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	background: #505050;
+}
+
+.element-symbol-active {
+	background: #3498db;
+}
+
+.element-symbol:hover {
+	background: #34495e;	
+}
+
+.element .card-title {
+	font-weight: bold;
+	color: #505050;
+}
+
+.element .card-reveal {
+	margin-left: -10px;
+	line-height: 0pt;
+	overflow: hidden;
+}
+
+.component-details {
+	margin: 5px;
 }
 
 .detail-subhead {
 	font-size: 8pt;
 }
+
+
+
+
+/* STATIONS PANEL */
+#station-wrapper {
+	width: 90%;
+	margin-left: 5%;
+	text-align: center;
+}
+
+.station .card-title {
+	font-weight: bold;
+	color: #505050;
+	font-size: 10pt;
+	line-height: 10pt;
+}
+
+
+
 
 
 /* HOVER PANEL */
@@ -116,8 +162,8 @@ div {
 	width: 100vw;
 	background: rgba(0,0,0,0.6);
 	z-index: 100;
-	display: none;
-}
+/*	display: none;
+*/}
 
 #hover-panel .card-panel {
 	margin-top: 20vh;

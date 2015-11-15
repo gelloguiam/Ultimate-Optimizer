@@ -5,12 +5,4 @@ $(document).ready(function(){
 		edge: 'right'
 	});
 
-	$("#element-panel").hover(function(){
-		$(".element-details").slideDown("slow");
-	});
-
-	$("#station-panel").hover(function(){
-		$(".element-details").slideUp("slow");
-	});
-
 });
