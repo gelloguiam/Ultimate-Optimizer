@@ -1,12 +1,19 @@
+@font-face {
+    font-family: lobster;
+    src: url("../font/lobster.otf");
+}
+
+
 body {
 	height: 100vh;
 	color: #3E4651;
 	overflow: hidden;
-	background: url("../img/footer_lodyas.png");
+	background: url("../img/bg.jpg");
+	background-size: 100%;
 }
 
 div {
-/*	border: solid 1px red;
+/*	border: solid 1px red;	
 */}
 
 .container {
@@ -15,6 +22,10 @@ div {
 
 .row {
 	margin: 0;
+}
+
+.section {
+	padding: 10px;
 }
 
 
@@ -45,7 +56,8 @@ div {
 
 /* TOP-PANEL */
 #top-panel {
-	background: #27ae60;
+	background: #2980b9;
+	padding: 0;
 }
 
 #site-header {
@@ -54,15 +66,16 @@ div {
 }
 
 #site-title {
-	font-weight: bold;
+	font-family: lobster;
 	float: left;
 	color: white;
 }
 
 .button-collapse {
-	font-size: 30px;
+	font-size: 50px;
 	color: white;
 	float: right;
+	padding: 0;
 }
 
 
@@ -70,7 +83,7 @@ div {
 
 /* ELEMENT PANEL */
 #element-panel {
-	background: rgba(0,0,0,0.3);
+	background: rgba(0,0,0,0.2);
 }
 
 #element-wrapper {
@@ -80,12 +93,12 @@ div {
 }
 
 #element-wrapper .col {
-	padding: 15px;
+	padding: 10px;
 }
 
 #line {
 	position: absolute;
-	top: 150px;
+	top: 180px;
 	right: 10%;
 	z-index: -10;
 	height: 2px;
@@ -95,7 +108,7 @@ div {
 }
 
 .element {
-	background: white;
+	background-image: url("../img/pattern.png");
 	padding: 10px;
 }
 
@@ -117,7 +130,13 @@ div {
 
 .element .card-title {
 	font-weight: bold;
+	color: white;
+}
+
+.element .card-reveal .card-title {
+	font-weight: bold;
 	color: #505050;
+	margin-top: -5px;
 }
 
 .element .card-reveal {
@@ -145,10 +164,22 @@ div {
 }
 
 .station .card-title {
-	font-weight: bold;
 	color: #505050;
-	font-size: 10pt;
-	line-height: 10pt;
+	font-size: 12pt;
+}
+
+.station-element .station {
+	height: 150px;
+}
+
+.station-element .card-reveal {
+	padding: 0;
+}
+
+.station-element .card-reveal .card-title {
+	padding: 5px;
+	background: #505050;
+	color: white; 
 }
 
 
@@ -160,17 +191,18 @@ div {
 	position: absolute;
 	height: 100vh;
 	width: 100vw;
-	background: rgba(0,0,0,0.6);
+	background: rgba(0,0,0,0.9);
 	z-index: 100;
-/*	display: none;
-*/}
+	display: none;
+}
 
 #hover-panel .card-panel {
+	background-image: url("../img/pattern.png");
 	margin-top: 20vh;
-	width: 70vw;
+	width: 70vw;	
 	margin-left: 10vw;
 	padding: 20px 80px;
-	color: #34495E;
+	color: white;
 }
 
 #or-wrapper {
@@ -181,16 +213,16 @@ div {
 	width: 200px;
 	height: 200px;
 	border-radius: 100%;
-	background: #bdc3c7;
+	background: #505050;
 	color: white;
 	margin-left: 5px;
 	margin: 0 20px;
 	cursor: hand;
-	font-weight: bolder;
+	border: none;
 }
 
 .goal-option:hover {
-	background: #27AE60;
+	background: #3498db;
 }
 
 #goal-max {
@@ -200,7 +232,6 @@ div {
 #goal-min {
 	float: right;
 }
-
 
 #goal-or {
 	height: 200px;
