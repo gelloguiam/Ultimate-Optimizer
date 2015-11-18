@@ -8,9 +8,9 @@ body {
 	height: 100vh;
 	color: #3E4651;
 	overflow: hidden;
-	background: url("../img/bg.jpg");
-	background-size: 100%;
-}
+	background: url("../img/wood.jpg");
+/*	background-size: 100%;
+*/}
 
 div {
 /*	border: solid 1px red;	
@@ -28,7 +28,10 @@ div {
 	padding: 10px;
 }
 
-
+#app-wrapper {
+	height: 100vh;
+	background: rgba(255,255,255,0.2);
+}
 
 
 /* SUMMARY */
@@ -37,26 +40,45 @@ div {
 }
 
 .summary-card {
-	background: #3498db;
+	background: #2ecc71;
 	color: white;
-	padding: 0;
 }
 
 .summary-card h6 {
 	text-align: center;
-	font-size: 15pt;
+	font-size: 14pt;
 }
 
 #station-summary {
-	background: #2980b9;
+	background: #27ae60;
 }
 
+
+#month-summary {
+	background: #27ae60;
+	text-align: center;
+}
+
+#goal-summary {
+	text-align: center;
+}
+
+#export-btn-wrapper {
+	text-align: center;
+	padding: 20px;
+}
+
+#export {
+	background: #505050;
+	border: none; 
+	text-align: center;
+}
 
 
 
 /* TOP-PANEL */
 #top-panel {
-	background: #2980b9;
+	background: #27ae60;
 	padding: 0;
 }
 
@@ -83,7 +105,6 @@ div {
 
 /* ELEMENT PANEL */
 #element-panel {
-	background: rgba(0,0,0,0.2);
 }
 
 #element-wrapper {
@@ -117,15 +138,17 @@ div {
 	height: 100px;
 	width: 100px;
 	border-radius: 100%;
+	color: white;
+	line-height: 100px;
 	background: #505050;
 }
 
 .element-symbol-active {
-	background: #3498db;
+	background: #2ecc71;
 }
 
 .element-symbol:hover {
-	background: #34495e;	
+	transform: scale(1.1);
 }
 
 .element .card-title {
@@ -161,10 +184,11 @@ div {
 	width: 90%;
 	margin-left: 5%;
 	text-align: center;
+	color: black;
 }
 
 .station .card-title {
-	color: #505050;
+	color: black;
 	font-size: 12pt;
 }
 
@@ -182,6 +206,14 @@ div {
 	color: white; 
 }
 
+.station:hover {
+	border: solid 3px #27ae60;
+}
+
+.station-element-active {
+	border: solid 3px #505050;
+	background: #2ecc71;
+}
 
 
 
@@ -191,10 +223,10 @@ div {
 	position: absolute;
 	height: 100vh;
 	width: 100vw;
-	background: rgba(0,0,0,0.9);
+	background: rgba(255,255,255,0.7);
 	z-index: 100;
-	display: none;
-}
+/*	display: none;
+*/}
 
 #hover-panel .card-panel {
 	background-image: url("../img/pattern.png");
@@ -222,7 +254,7 @@ div {
 }
 
 .goal-option:hover {
-	background: #3498db;
+	background: #2ecc71;
 }
 
 #goal-max {

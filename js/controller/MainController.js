@@ -71,6 +71,41 @@ ulopt.controller('MainController', function($scope, $http){
 
 	}
 
+	$scope.exportData = function(){
+		//source: http://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
+		var data = [];
+		data.push($scope.activeComponets);
+		data.push($scope.activeStations);
+
+		var csvContent = "data:text/csv;charset=utf-8,";
+		
+		data.forEach(function(infoArray, index){
+
+	   		dataString = infoArray.join(",");
+	   		csvContent += index < data.length ? dataString+ "\n" : dataString;
+
+		});
+
+		var encodedUri = encodeURI(csvContent);
+		var link = document.createElement("a");
+		link.setAttribute("href", encodedUri);
+		link.setAttribute("download", "tableau.csv");
+
+		link.click();
+
+	}
+
+	$scope.toggleStationAnimation = function(index){
+		$scope.toggleStation(index);
+		var element = $("stations .station").get(index);
+		if(!$scope.stationsStatus[index]) {
+			$(element).removeClass("station-element-active");		
+		}
+		else {
+			$(element).addClass("station-element-active");					
+		}
+	}
+
 });
 
 

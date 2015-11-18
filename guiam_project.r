@@ -47,7 +47,7 @@ UltimateOptimizer = function() {
     ratio = ratio[-length(ratio)]; #remove ratio got from last row
     minRatio = getMinRatio(ratio); #get minimum ratio
   
-    pivotElementIndex = getIndex(minRatio, ratio); #get pivot element index
+    pivotElementIndex = which(ratio[] == minRatio); #get pivot element index
     pivotElement = mat[pivotElementIndex, pivotColumnIndex]; #get pivot element
       
     mat[pivotElementIndex,] = mat[pivotElementIndex,]/pivotElement; #normalize row

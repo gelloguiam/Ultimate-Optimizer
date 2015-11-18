@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="js/angular.min.js"></script>
 </head>
 <body ng-app="ultimateOptimizer">
-<div ng-controller="MainController">
+<div ng-controller="MainController" class="row" id="app-wrapper">
 
 	<!-- Goal Choice Hover -->
 	<div class="row" id="hover-panel">
@@ -49,56 +49,50 @@
 	 				<h5>Summary</h5>
 	 			</div>
 
-	 			<div class="row card summary-card">
+	 			<div class="card summary-card">
 		 			<div class="col s6" id="goal-summary">
-			 			<div class="row">
-			 				<br>
+			 			<div class="section">
 			 				<h6>Optimization Goal</h6>
 			 			</div>
-			 			<div>
+			 			<div class="section">
 			 				{{ goal }}
 			 			</div>
 			 		</div>
-
 			 		<div class="col s6" id="month-summary">	 	
-			 			<div class="row">
-			 				<br>
+			 			<div class="section">
 		 					<h6>Month Concern</h6>
 		 				</div>
-		 				<div>
+		 				<div class="section">
 		 					{{month}}
 		 				</div>
 		 			</div>
-
 	 			</div>
 
-	 			<br>
-
-	 			<div class="row card summary-card">
-
+	 			<div class="card summary-card">
 		 			<div class="col s6" id="component-summary">
-			 			<div class="row">
-			 				<br>
+			 			<div class="section">
 			 				<h6>Active Components</h6>
 			 			</div>
-			 			<ul class="">
-				 			<li ng-repeat="item in activeComponets">
+			 			<div class="section">
+				 			<div ng-repeat="item in activeComponets">
 				 				{{ item }}
-				 			</li>
-			 			</ul>
+				 			</div>
+			 			</div>
 			 		</div>
-
 			 		<div class="col s6" id="station-summary">	 	
-			 			<div class="row">
-			 				<br>
+			 			<div class="section">
 		 					<h6>Active Stations</h6>
 		 				</div>
-			 			<ul class="">
-				 			<li ng-repeat="item in activeStations">
+			 			<div class="section">
+				 			<div ng-repeat="item in activeStations">
 				 				{{ item }}
-				 			</li>
-			 			</ul>
+				 			</div>
+			 			</div>
 		 			</div>
+	 			</div>
+
+	 			<div class="row section" id="export-btn-wrapper">
+	 				<button ng-click="exportData()" id="export" class="btn">EXPORT</button>
 	 			</div>
 
 	 		</div>
@@ -147,8 +141,8 @@
 	  			<div class="col s10">
 	  				<div class="row">
 			  			<div class="col s2 station-element" ng-repeat="station in stations.stations">
-			  				<stations station="station"
-			  					ng-click="toggleStation($index)"
+			  				<stations station="station" 
+			  					ng-click="toggleStationAnimation($index)"
 			  				></stations>
 			  			</div>
 	  				</div>
