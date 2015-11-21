@@ -140,10 +140,6 @@ div {
 	border-radius: 100%;
 	color: white;
 	line-height: 100px;
-	background: #505050;
-}
-
-.element-symbol-active {
 	background: #2ecc71;
 }
 
@@ -214,12 +210,6 @@ div {
 	border: solid 3px #505050;
 	background: #2ecc71;
 }
-
-.active-month div {
-	background: #2ecc71;
-}
-
-
 
 
 /* HOVER PANEL */

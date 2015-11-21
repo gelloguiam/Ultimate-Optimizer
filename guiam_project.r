@@ -6,6 +6,7 @@ getMinRatio = function (vect) {
 }
 
 GaussJordan = function(mat, rowCount, colCount, pivotElementIndex, pivotColumnIndex) {
+  options(digits=4);
   counter = 1;
   while(counter <= rowCount) {
     if(counter != pivotElementIndex) {
@@ -20,7 +21,7 @@ GaussJordan = function(mat, rowCount, colCount, pivotElementIndex, pivotColumnIn
 }
 
 UltimateOptimizer = function() {
-  options(digits=2);
+  options(digits=4);
   mat = read.csv("data.csv"); #read data from the directory
   #reference: http://www.r-tutor.com/r-introduction/data-frame/data-import
   

@@ -74,8 +74,8 @@
 			 				<h6>Active Components</h6>
 			 			</div>
 			 			<div class="section">
-				 			<div ng-repeat="item in activeComponets">
-				 				{{ item }}
+				 			<div ng-repeat="item in components.components">
+				 				{{ item.name }}
 				 			</div>
 			 			</div>
 			 		</div>
@@ -123,7 +123,6 @@
 			  		<components
 			  			item="item"
 			  			status="componentsStatus[$index]"
-			  			ng-click="toggleComponent($index)"
 			  			>
 			  		</components>
 		  		</div>
@@ -134,13 +133,28 @@
 	  	<div class="row section" id="station-panel">
 	  		<div class="row" id="station-wrapper">
 	  			<div class="col s2">
-	  				<div ng-repeat="month in stations.months" class="month-panel">
-	  					<div class="card-panel"
-	  						 ng-click="setMonth($index)">
-		  					{{ month }}  						
+	  				<div class="card-panel">
+	  					<div class="card-title section">
+	  						<h6 class="grey-text">Month Concern</h6>
+	  						<h5>{{ month }}</h5>
+	  					</div>
+	  					<div class="divider"></div>
+	  					<div class="card-content section">
+							<a class='dropdown-button btn'
+							   href='#'
+							   data-activates='dropdown1'>
+							   change
+							</a>
+							<ul id='dropdown1' class='dropdown-content'>
+								<li ng-repeat="month in stations.months">
+							    	<a href="#!" ng-click="setMonth($index)">
+							    		{{ month }}
+							    	</a>
+					    		</li>
+							</ul>
 	  					</div>
 	  				</div>
-	  			</div>
+				</div>
 	  			<div class="col s10">
 	  				<div class="row">
 			  			<div class="col s2 station-element"
