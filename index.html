@@ -134,15 +134,19 @@
 	  	<div class="row section" id="station-panel">
 	  		<div class="row" id="station-wrapper">
 	  			<div class="col s2">
-	  				<div ng-repeat="month in stations.months">
-	  					{{month}}
+	  				<div ng-repeat="month in stations.months" class="month-panel">
+	  					<div class="card-panel"
+	  						 ng-click="setMonth($index)">
+		  					{{ month }}  						
+	  					</div>
 	  				</div>
 	  			</div>
 	  			<div class="col s10">
 	  				<div class="row">
-			  			<div class="col s2 station-element" ng-repeat="station in stations.stations">
+			  			<div class="col s2 station-element"
+			  				 ng-repeat="station in stations.stations">
 			  				<stations station="station" 
-			  					ng-click="toggleStationAnimation($index)"
+			  					ng-click="toggleStation($index)"
 			  				></stations>
 			  			</div>
 	  				</div>

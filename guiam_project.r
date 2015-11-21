@@ -20,6 +20,7 @@ GaussJordan = function(mat, rowCount, colCount, pivotElementIndex, pivotColumnIn
 }
 
 UltimateOptimizer = function() {
+  options(digits=2);
   mat = read.csv("data.csv"); #read data from the directory
   #reference: http://www.r-tutor.com/r-introduction/data-frame/data-import
   

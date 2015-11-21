@@ -1,11 +1,14 @@
-ulopt.controller('MainController', function($scope, $http){
-	$scope.components = null;
-	$scope.componentsStatus = [false, false, false, false, false, false];
-	$scope.stationsStatus = [false, false, false, false, false, false, false, false, false, false, false];
+ulopt.controller('MainController', function($scope, $http) {
+	$scope.tableau = [];
 
+	$scope.components = null;
 	$scope.stations = null;
 	$scope.goal = null;
-	$scope.month = "June";
+	$scope.month = null;
+
+	$scope.componentsStatus = [false, false, false, false, false, false];
+	$scope.stationsStatus = [false, false, false, false, false, false, false, false, false, false, false];
+	$scope.monthIndex = 0;
 
 	$scope.activeComponets = [];
 
@@ -22,7 +25,6 @@ ulopt.controller('MainController', function($scope, $http){
 	$scope.setGoalMAX = function() {
 		$scope.goal = "Maximize";
 		$("#hover-panel").slideUp();
-		$("table").slideDown();
 	}
 
 	$scope.setGoalMIN = function() {
@@ -40,6 +42,9 @@ ulopt.controller('MainController', function($scope, $http){
 		if($scope.stationsStatus[index]) $scope.stationsStatus[index] = false;	
 		else $scope.stationsStatus[index] = true;
 		console.log($scope.stationsStatus);
+
+		var element = $("stations .station").get(index);
+		$(element).toggleClass("station-element-active");
 	}
 
 	$scope.getActiveComponets = function(){
@@ -62,21 +67,115 @@ ulopt.controller('MainController', function($scope, $http){
 		}
 	}
 
+	$scope.setMonth = function(index) {
+		var element = $(".month-panel").get(index);
+		$(element).toggleClass("active-month");
+		$scope.month = $scope.stations.months[index];
+	}
+
 	$scope.updateStatus = function(){
 		$scope.getActiveStation();
 		$scope.getActiveComponets();
+	}
 
-		console.log("Components: " + $scope.activeComponets + "\n");
-		console.log("Stations: " + $scope.activeStations + "\n");
+	$scope.setHeaderMatrix = function(){
+		var dummy = [];
+		var text = "";
+
+		for(var i=0; i<6; i++) {
+			text = "x" + (i+1);
+			dummy.push(text);
+		}
+
+		for(var i=0; i<6; i++) {
+			text = "s" + (i+1);
+			dummy.push(text);
+		}
+
+		dummy.push("Z");
+		dummy.push("RHS");
+
+		$scope.tableau.push(dummy);
+
+	}
+
+	$scope.getSumRQCinRMS = function() {
+		var dummy = [];
+		var RMSName = "";
+		var RQCData = [];
+		var n = 0;	
+		var summ = 0;
+
+		$scope.stationsStatus.forEach(function(status, index){
+			if(status) n++;
+		});
+
+		$scope.componentsStatus.forEach(function(RQC, indexOuter){	
+			
+			if(RQC) {
+				//get contents of componets[index]
+				RQCData = $scope.components.components[indexOuter];
+
+				for(var i=0; i<6; i++) {
+					if(i==indexOuter) dummy.push(RQCData.remAmt);
+					else dummy.push(0);
+
+				}
+				
+				$scope.stationsStatus.forEach(function(RMS, indexInner){
+					if(RMS) {
+						//set River Monitoring System Name
+						RMSName = $scope.stations.stations[indexInner].name;
+						summ = summ + parseFloat(RQCData[RMSName][$scope.monthIndex]);
+					}
+				});
+				
+				//fill in slack variables
+				for(var i=0; i<6; i++) {
+					if(i==indexOuter) dummy.push(1);
+					else dummy.push(0);
+				}
+
+				summ = summ + parseFloat(RQCData.maxStand * n);
+				dummy.push(0); // column Z
+				dummy.push(summ); // column RHS
+
+			}
+			//add to array if not empty
+			if(dummy.length > 0) $scope.tableau.push(dummy);
+			dummy = [];
+			summ = 0;
+		});
+	}
+
+	$scope.constructMatrix = function() {
+		var dummy = [];
+		$scope.setHeaderMatrix();
+		$scope.getSumRQCinRMS();
+		
+		//construct objective function
+		$scope.componentsStatus.forEach(function(content, index){
+			if(content) {
+				dummy.push(-1 * $scope.components.components[index].remCost);
+			}
+		});
+
+		//fill in slack variables
+		for(var i=0; i<6; i++) {
+			dummy.push(0);
+		}
+
+		dummy.push(1); //TC
+		dummy.push(0); //solution for objective function
+
+		$scope.tableau.push(dummy);
 
 	}
 
 	$scope.exportData = function(){
 		//source: http://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
-		var data = [];
-		data.push($scope.activeComponets);
-		data.push($scope.activeStations);
-
+		$scope.constructMatrix();
+		var data = $scope.tableau;
 		var csvContent = "data:text/csv;charset=utf-8,";
 		
 		data.forEach(function(infoArray, index){
@@ -89,23 +188,9 @@ ulopt.controller('MainController', function($scope, $http){
 		var encodedUri = encodeURI(csvContent);
 		var link = document.createElement("a");
 		link.setAttribute("href", encodedUri);
-		link.setAttribute("download", "tableau.csv");
+		link.setAttribute("download", "data.csv");
 
 		link.click();
-
-	}
-
-	$scope.toggleStationAnimation = function(index){
-		$scope.toggleStation(index);
-		var element = $("stations .station").get(index);
-		if(!$scope.stationsStatus[index]) {
-			$(element).removeClass("station-element-active");		
-		}
-		else {
-			$(element).addClass("station-element-active");					
-		}
 	}
 
 });
-
-

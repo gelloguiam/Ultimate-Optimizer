@@ -18,14 +18,15 @@
 		},
 
 		{
+			"name"		:	"McArthur Bridge II",
+			"volume"	:	"48750000" 
+		},
+
+		{
 			"name"		:	"McArthur Bridge",
 			"volume"	:	"46000000" 
 		},
 
-		{
-			"name"		:	"McArthur Bridge II",
-			"volume"	:	"48750000" 
-		},
 
 		{
 			"name"		:	"Meyc-Mar Mixing Zone",
@@ -43,7 +44,7 @@
 		},
 
 		{
-			"name"		:	"Polo",
+			"name"		:	"Polo Bridge",
 			"volume"	:	"8010000" 
 		},
 
