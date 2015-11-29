@@ -1,4 +1,5 @@
 ulopt.controller('MainController', function($scope, $http) {
+	$scope.title = "Ultimate Optimizer"
 	$scope.components = null;
 	$scope.stations = null;
 
@@ -155,11 +156,24 @@ ulopt.controller('MainController', function($scope, $http) {
 	$scope.resetData = function() {
 		$scope.tableau = [];
 		$scope.toggledStationCount = 0;
-
 		$scope.goal = null;
 
 		$scope.componentsStatus = [true, true, true, true, true, true];
 		$scope.stationsStatus = [false, false, false, false, false, false, false, false, false, false, false];
+
+		for(var i=0; i<11; i++) {
+			var element = $("stations .station").get(i);
+			$(element).removeClass("station-element-active");			
+		}
+
+	}
+
+	$scope.loadResults = function(){
+		//loads results csv
+		$http.get("iterations/iteration_6.csv").success(function(response){
+			console.log(response.length);
+		});
+
 	}
 
 	$scope.exportData = function(){
@@ -188,6 +202,22 @@ ulopt.controller('MainController', function($scope, $http) {
 
 		link.click();
 		$scope.resetData();
+	}
+
+	$scope.slideTab = function(index){
+		var tabs = [];
+
+		for(var i=0; i<3; i++) {
+			tabs.push($(".tab-content").get(i));
+			if(index == i) {
+				$(tabs[i]).show();
+			}
+			else {
+				$(tabs[i]).hide();
+			}
+		}
+
+		console.log(index);
 	}
 
 });

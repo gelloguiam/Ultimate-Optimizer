@@ -57,11 +57,29 @@ UltimateOptimizer = function() {
     mat = GaussJordan(mat, rowCount, colCount, pivotElementIndex, pivotColumnIndex); #perform Gauss Jordan
     
     fileName = paste("iterations/iteration_",iteration,".csv", sep="");
-    print(fileName);
+#    print(fileName);
     write.table(mat, file=fileName, row.names=FALSE, col.names=FALSE, sep=",");
     #reference: http://rprogramming.net/write-csv-in-r/
 
-    print(mat);
+    i = 1;
+    variables = colnames(mat);
+    cat("\nBASIC SOLUTIION:\n");
+
+    while (i<colCount) {
+      temp = mat[,i];
+      value = mat[,colCount];
+      if(sum(temp) == 1) {
+        valIndex = which(temp == 1);
+        cat(variables[i], "=", value[valIndex],"\n");
+      }
+      else {
+        cat(variables[i],"= 0\n"); 
+      }
+#      print(sum(mat[,i]));
+      i = i + 1;
+    }
+    
+#    print(mat);
     iteration = iteration + 1;
   }
 

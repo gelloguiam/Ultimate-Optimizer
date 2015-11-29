@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+	$(document).ready(function(){
+		$('ul.tabs').tabs();
+	});
+
 	$(".button-collapse").sideNav({
 		menuWidth: 500,
 		edge: 'right'

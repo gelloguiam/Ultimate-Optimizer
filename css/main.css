@@ -6,9 +6,9 @@
 
 body {
 	height: 100vh;
-	color: #3E4651;
 	overflow: hidden;
-	background: url("../img/wood.jpg");
+	background: #ecf0f1;
+/*	background: url("../img/wood.jpg");
 /*	background-size: 100%;
 */}
 
@@ -17,15 +17,7 @@ div {
 */}
 
 .container {
-	width: 90%;
-}
-
-.row {
-	margin: 0;
-}
-
-.section {
-	padding: 10px;
+	width: 85%;
 }
 
 #app-wrapper {
@@ -34,7 +26,7 @@ div {
 }
 
 
-/* SUMMARY */
+/* SUMMARY 
 #slide-out {
 	padding: 20px;
 }
@@ -78,54 +70,59 @@ div {
 
 /* TOP-PANEL */
 #top-panel {
-	background: #27ae60;
-	padding: 0;
-}
-
-#site-header {
-	width: 90%;
-	margin-left: 5%;
+	background: url("../img/top.png");
+	height: 300px;
 }
 
 #site-title {
-	font-family: lobster;
-	float: left;
-	color: white;
+/*	font-family: lobster;
+*/	color: white;
 }
 
-.button-collapse {
-	font-size: 50px;
-	color: white;
-	float: right;
-	padding: 0;
+.tabs {
+  background-color: rgba(0,0,0,0);
+}
+
+.tabs .tab a {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.tabs .tab a:hover {
+    color: #2ecc71;
+}
+
+.tabs .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background-color: #2ecc71;
+    will-change: left, right
+}
+
+/* BODY PANEL */
+#body-panel .card-panel {
+	height: 550px;
+	margin-top: -230px;
+}
+
+.hide-tab {
+	display: none;
 }
 
 
 
-
+/* TAB 3*/
 /* ELEMENT PANEL */
 #element-panel {
 }
 
 #element-wrapper {
-	width: 90%;
-	margin-left: 5%;
 	text-align: center;
 }
 
 #element-wrapper .col {
 	padding: 10px;
-}
-
-#line {
-	position: absolute;
-	top: 180px;
-	right: 10%;
-	z-index: -10;
-	height: 2px;
-	width: 80%;
-	height: auto;
-	text-align: center;
 }
 
 .element {
@@ -174,13 +171,10 @@ div {
 
 
 
-
+/* TAB 2 */
 /* STATIONS PANEL */
 #station-wrapper {
-	width: 90%;
-	margin-left: 5%;
 	text-align: center;
-	color: black;
 }
 
 .station .card-title {
