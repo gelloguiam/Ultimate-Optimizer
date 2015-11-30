@@ -70,7 +70,7 @@ div {
 
 /* TOP-PANEL */
 #top-panel {
-	background: url("../img/top.png");
+	background: url("../img/black_denim.png");
 	height: 300px;
 }
 
@@ -100,14 +100,108 @@ div {
     will-change: left, right
 }
 
+
+
 /* BODY PANEL */
 #body-panel .card-panel {
-	height: 550px;
+	min-height: 550px;
+	height: auto;
 	margin-top: -230px;
 }
 
 .hide-tab {
 	display: none;
+}
+
+
+
+/* TAB 1 */
+.form-content label {
+	color: #27ae60;
+	padding: 5px;
+}
+
+.form-content input {
+	height: 30px;
+	border: solid 1px #bdc3c7;
+	border-radius: 5px;
+	text-indent: 10px;
+	margin: 5px 0;
+}
+
+.form-content input:focus {
+	border: solid 1px #2ecc71;
+	box-shadow: 0 0 3px #2ecc71;
+}
+
+.form-content textarea {
+	height: 280px;
+	border: solid 1px #bdc3c7;
+	border-radius: 5px;
+	text-indent: 10px;
+	margin: 5px 0;
+}
+
+.form-content textarea:focus {
+	outline: none !important;
+	border: solid 1px #2ecc71;
+	box-shadow: 0 0 3px #2ecc71;
+}
+
+#tab1 button {
+	background: #27ae60;
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	border: none;
+	color: white;
+	margin: 5px;
+
+}
+
+#goal-wrapper {
+	text-align: center;
+	margin: 20px auto;
+}
+
+
+/* TAB 2 */
+/* STATIONS PANEL */
+#station-wrapper {
+}
+
+#station-wrapper .s2 {
+	text-align: center;
+}
+
+.station .card-title {
+	color: black;
+	font-size: 12pt;
+}
+
+.station-element .station {
+	text-align: center;
+	height: 150px;
+}
+
+.station-element .card-reveal {
+	padding: 0;
+}
+
+.station-element .card-reveal .card-title {
+	padding: 5px;
+	background: #505050;
+	color: white; 
+}
+
+.station:hover {
+	border: solid 1px #2ecc71;
+	box-shadow: 0 0 3px #2ecc71;
+}
+
+.station-element-active {
+	border: solid 2px #2ecc71;
+	box-shadow: 0 0 10px #7f8c8d;
 }
 
 
@@ -126,7 +220,7 @@ div {
 }
 
 .element {
-	background-image: url("../img/pattern.png");
+	background-color: #565656;
 	padding: 10px;
 }
 
@@ -137,11 +231,7 @@ div {
 	border-radius: 100%;
 	color: white;
 	line-height: 100px;
-	background: #2ecc71;
-}
-
-.element-symbol:hover {
-	transform: scale(1.1);
+	background: #95a5a6;
 }
 
 .element .card-title {
@@ -169,41 +259,17 @@ div {
 	font-size: 8pt;
 }
 
-
-
-/* TAB 2 */
-/* STATIONS PANEL */
-#station-wrapper {
-	text-align: center;
+.activeElement {
+	box-shadow: 0 0 10px #27ae60;
+	background-color: #353535;
 }
 
-.station .card-title {
-	color: black;
-	font-size: 12pt;
+.activeElement .element-symbol {
+	background: #27ae60;
 }
 
-.station-element .station {
-	height: 150px;
-}
 
-.station-element .card-reveal {
-	padding: 0;
-}
 
-.station-element .card-reveal .card-title {
-	padding: 5px;
-	background: #505050;
-	color: white; 
-}
-
-.station:hover {
-	border: solid 3px #27ae60;
-}
-
-.station-element-active {
-	border: solid 3px #505050;
-	background: #2ecc71;
-}
 
 
 /* HOVER PANEL */

@@ -3,7 +3,8 @@ ulopt.directive('components', function() {
 		restrict : 'EA',
 		scope : {
 			item: '=',
-			status: '='
+			index: '=',
+			focus: '='
 		},
 		templateUrl: 'template/components.html'
 	}

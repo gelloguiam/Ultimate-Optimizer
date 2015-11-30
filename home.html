@@ -16,24 +16,61 @@
 			<div class="col s4"> <h5 id="site-title"> {{ title }} </h5> </div>
 			<div class="col s8">
 				<ul class="tabs">
-	        		<li class="tab col s3"><a ng-click="slideTab(0)" href="#tab1">Ultimate Optimizer</a></li>
-	        		<li class="tab col s3"><a ng-click="slideTab(1)" class="active" href="#tab2">River Quality Projector</a></li>
+	        		<li class="tab col s3"><a ng-click="slideTab(0)" class="active" href="#tab1">Ultimate Optimizer</a></li>
+	        		<li class="tab col s3"><a ng-click="slideTab(1)" href="#tab2">River Quality Projector</a></li>
 	        		<li class="tab col s3"><a ng-click="slideTab(2)" href="#tab3">Element Costing</a></li>
 	      		</ul>
 			</div>
 		</div>
 	</div>
 	<div id="body-panel" class="container">
+
+		<!-- TAB 1 -->
+
 		<div class="card-panel tab-content">
-			<div id="tab1" class="col s12">Test 1</div>	
+
+			<div id="tab1" class="col s12">
+			  	<div class="col s12 tab-title">
+			  		<h5>Ultimate Optimizer</h5>
+					<h6 class="grey-text">Enter objective function, constraints, and goal.</h6>
+			  		<div class="divider"></div>
+					<br>			  				
+				</div>
+
+				<div class="col s9">
+					<div class="col s12" id="form-content">
+						<div class="row">
+					        <div>
+					        	<label>Objective Function</label>
+					        	<input value="" type="text" class="validate" placeholder="x+2x=z" ng-model="objectiveFunction">
+					        </div>
+					        <div>	
+					        	<label>Constraints</label>
+					        	<textarea ng-model="constraintsSet"></textarea>
+					        </div>
+					    </div>
+					</div>
+				</div>
+				<div class="col s3">
+					<div class="col s12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+					<div id="goal-wrapper" class="col s12 section">
+						<button>Minimize</button>
+						<button>Maximize</button>
+					</div>
+				</div>
+			</div>
 		</div>
+
+		<!-- TAB 2 -->
 
 		<div class="card-panel tab-content hide-tab">
 			<div id="tab2" class="col s12">
 			  	<!--STATIONS PANEL-->
-			  	<div class="row" id="station-panel">
+			  	<div id="station-panel">
 			  		<div id="station-wrapper">
-			  			<div class="col s12">
+
+			  			<div class="col s12 tab-title">
 			  				<h5>River Quality Projector</h5>
 							<h6 class="grey-text">Please select a River Station to analyze. Select a month of concern. Click export.</h6>
 			  				<div class="divider"></div>
@@ -73,18 +110,25 @@
 			  				</div>
 						</div>
 
-
 			  		</div>
 				</div>	  	
-				
 
 			</div>	
 		</div>
 
+		<!-- TAB 3 -->
+
 		<div class="card-panel tab-content hide-tab">
 			<div id="tab2" class="col s12">
+
+			  	<div class="col s12 tab-title">
+			  		<h5>Element Costing</h5>
+					<h6 class="grey-text">Update element costing</h6>
+			  		<div class="divider"></div>
+				</div>
+
 			  	<!--ELEMENT PANEL-->
-			  	<div class="row" id="element-panel">
+			  	<div class="" id="element-panel">
 			  		<div id="element-wrapper">
 						<div class="col s2" ng-repeat="item in components.components" class="item-wrapper">
 					  		<components
@@ -95,6 +139,8 @@
 				  		</div>
 			  		</div>
 			  	</div>
+
+			  	
 			</div>			
 		</div>
 

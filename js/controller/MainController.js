@@ -1,18 +1,25 @@
 ulopt.controller('MainController', function($scope, $http) {
-	$scope.title = "Ultimate Optimizer"
 	$scope.components = null;
+
 	$scope.stations = null;
-
-	$scope.tableau = [];
-	$scope.toggledStationCount = 0;
-
-	$scope.goal = null;
-	$scope.month = "March";
-	$scope.monthIndex = 0;
-
-	$scope.componentsStatus = [true, true, true, true, true, true];
 	$scope.stationsStatus = [false, false, false, false, false, false, false, false, false, false, false];
 
+	$scope.tableau = [];
+	$scope.activeStationCount = 0;
+
+	$scope.activeMonth = "March";
+	$scope.monthIndex = 0;
+
+	$scope.objectiveFunction = "";
+	$scope.constraintsSet = "";
+
+	$scope.activeElementIndex = 0;
+	$scope.activeElement = "Arsenic";
+	$scope.activeElementUpdate = [];
+	
+
+
+	/* INITIALIZE DATA */
 	//loads components data
 	$http.get("data/components.json").success(function(response){
 		$scope.components = response;
@@ -23,50 +30,29 @@ ulopt.controller('MainController', function($scope, $http) {
 		$scope.stations = response;
 	});
 
-	$scope.setGoalMAX = function() {
-		$scope.goal = "Maximize";
-		$("#hover-panel").slideUp();
-	}
-
-	$scope.setGoalMIN = function() {
-		$scope.goal = "Minimize";
-		$("#hover-panel").slideUp();
-	}
-
+	/* Toggle Station */
 	$scope.toggleStation = function(index) {
 		if($scope.stationsStatus[index]) {
 			$scope.stationsStatus[index] = false;
-			$scope.toggledStationCount--;
+			$scope.activeStationCount--;
 		}
 
 		else {
 			$scope.stationsStatus[index] = true;
-			$scope.toggledStationCount++;		
+			$scope.activeStationCount++;		
 		}
 
 		var element = $("stations .station").get(index);
 		$(element).toggleClass("station-element-active");
 	}
 
-	$scope.getActiveStation = function(){
-		$scope.activeStations = [];
-		var length = $scope.stations.stations.length;
-		for (var i=0; i<length; i++) {
-			if($scope.stationsStatus[i]) {
-				$scope.activeStations.push($scope.stations.stations[i].name);
-			}
-		}
-	}
-
 	$scope.setMonth = function(index) {
-		$scope.month = $scope.stations.months[index];
+		$scope.activeMonth = $scope.stations.months[index];
 		$scope.monthIndex = index;
 	}
 
-	$scope.updateStatus = function(){
-		$scope.getActiveStation();
-	}
 
+	/* RIVER QUALITY COST PROJECTOR MATRIX (ROUND 3) */
 	$scope.setHeaderMatrix = function(){
 		var dummy = [];
 		var text = "";
@@ -86,6 +72,7 @@ ulopt.controller('MainController', function($scope, $http) {
 		$scope.tableau.push(dummy);
 	}
 
+	/* RIVER QUALITY COST PROJECTOR MATRIX (ROUND 2) */
 	$scope.getSumRQCinRMS = function() {
 		var dummy = [];
 		var RMSName = "";
@@ -97,7 +84,7 @@ ulopt.controller('MainController', function($scope, $http) {
 			RQCData = $scope.components.components[indexOuter];
 
 			for(var i=0; i<6; i++) {
-				if(i==indexOuter) dummy.push(RQCData.remAmt * $scope.toggledStationCount);
+				if(i==indexOuter) dummy.push(RQCData.remAmt * $scope.activeStationCount);
 				else dummy.push(0);
 			}
 				
@@ -118,9 +105,9 @@ ulopt.controller('MainController', function($scope, $http) {
 
 			//check if minimize or maximize
 			if($scope.goal == "Maximize")
-				summ = summ + parseFloat(RQCData.maxStand * $scope.toggledStationCount);				
+				summ = summ + parseFloat(RQCData.maxStand * $scope.activeStationCount);				
 			else
-				summ = summ + parseFloat(RQCData.minStand * $scope.toggledStationCount);				
+				summ = summ + parseFloat(RQCData.minStand * $scope.activeStationCount);				
 
 			dummy.push(0); // column Z
 			dummy.push(summ); // column RHS
@@ -132,6 +119,7 @@ ulopt.controller('MainController', function($scope, $http) {
 		});
 	}
 
+	/* RIVER QUALITY COST PROJECTOR MATRIX (ROUND 1)*/
 	$scope.constructMatrix = function() {
 		var dummy = [];
 		$scope.setHeaderMatrix();
@@ -153,32 +141,11 @@ ulopt.controller('MainController', function($scope, $http) {
 		$scope.tableau.push(dummy);
 	}
 
-	$scope.resetData = function() {
-		$scope.tableau = [];
-		$scope.toggledStationCount = 0;
-		$scope.goal = null;
 
-		$scope.componentsStatus = [true, true, true, true, true, true];
-		$scope.stationsStatus = [false, false, false, false, false, false, false, false, false, false, false];
-
-		for(var i=0; i<11; i++) {
-			var element = $("stations .station").get(i);
-			$(element).removeClass("station-element-active");			
-		}
-
-	}
-
-	$scope.loadResults = function(){
-		//loads results csv
-		$http.get("iterations/iteration_6.csv").success(function(response){
-			console.log(response.length);
-		});
-
-	}
-
+	/* EXPORT INITIAL TABLEAU */
 	$scope.exportData = function(){
 		//source: http://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
-		if($scope.toggledStationCount == 0) {
+		if($scope.activeStationCount == 0) {
  			Materialize.toast('NO RMS SELECTED!', 4000) 
  			return;
 		}
@@ -204,7 +171,8 @@ ulopt.controller('MainController', function($scope, $http) {
 		$scope.resetData();
 	}
 
-	$scope.slideTab = function(index){
+	/* Toggle Site Tab */
+	$scope.toggleTab = function(index){
 		var tabs = [];
 
 		for(var i=0; i<3; i++) {
@@ -216,8 +184,33 @@ ulopt.controller('MainController', function($scope, $http) {
 				$(tabs[i]).hide();
 			}
 		}
+	}
 
-		console.log(index);
+
+	$scope.doSimplex = function(goal) {
+		/* goal == 0 minimize
+		   goal == 1 maximize */
+	}
+
+	$scope.focusComponent = function(index) {
+		var elements = [];
+		
+		for(var i=0; i<6; i++) {
+			elements.push($("components .card").get(i));
+			if(i!= index)
+			$(elements[i]).removeClass("activeElement");
+		}
+		$(elements[index]).addClass("activeElement");
+
+		$scope.activeElementIndex = index;
+		$scope.activeElement = $scope.components.components[index].name;
+	}
+
+	$scope.updateElement = function() {	
+		$scope.components.components[$scope.activeElementIndex].remCost = $scope.activeElementUpdate[0];
+		$scope.components.components[$scope.activeElementIndex].remAmt = $scope.activeElementUpdate[1];
+		$scope.components.components[$scope.activeElementIndex].minStand = $scope.activeElementUpdate[2];
+		$scope.components.components[$scope.activeElementIndex].maxStand = $scope.activeElementUpdate[3];
 	}
 
 });
