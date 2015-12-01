@@ -23,6 +23,42 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="hover-panel">
+		<div class="card-panel">
+		<button id="exit-hover" class="btn-floating">x</button>
+			 <table>
+			    <thead>
+			    	<tr>
+			            <th rowspan="2">RQM</th>
+			            <th colspan="2">Number of Times</th>
+			            <th colspan="2">Cost per Liter (PhP)</th>
+			            <th colspan="2">Weight for All Stations (kg/L)</th>
+			        </tr>
+			    	<tr>
+			            <th>Minimum</th>
+			            <th>Maximum</th>
+			            <th>Minimum</th>
+			            <th>Maximum</th>
+			            <th>Minimum</th>
+			            <th>Maximum</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr ng-repeat="component in components.components">
+			            <td>{{ component.element }}</td>
+			            <td ng-repeat="value in resultMatrix[$index]">
+			            	{{ value | number:4 }}
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+			<br>
+			Total Volume: {{ totalVolume }}<br>
+			Number of Active River Stations: {{ activeStationCount }}		
+		</div>
+	</div>
+
 	<div id="body-panel" class="container">
 
 		<!-- TAB 1 -->
@@ -42,17 +78,24 @@
 						<div class="row">
 					        <div>
 					        	<label>Objective Function</label>
-					        	<input value="" type="text" class="validate" placeholder="x+2x=z" ng-model="objectiveFunction">
+					        	<input value="" type="text" class="validate" placeholder="Z = 2a + 3b + 6c" ng-model="objectiveFunction">
 					        </div>
 					        <div>	
 					        	<label>Constraints</label>
-					        	<textarea ng-model="constraintsSet"></textarea>
+					        	<textarea ng-model="constraintsSet" placeholder="5a + 2b <= 200"></textarea>
 					        </div>
 					    </div>
 					</div>
 				</div>
 				<div class="col s3">
-					<div class="col s12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					<div class="col s12" id="instruction">
+						<span class="emph">Instruction:</span><br>
+						Eneter your objective function using the format:
+						<span class="emph"> Z = c<sub>1</sub>x<sub>1</sub> + c<sub>2</sub>x<sub>2</sub> + ... * c<sub>n</sub>x<sub>n</sub></span><br>
+						where <span class="emph">c<sub>n</sub></span> is the numerical coefficient represented by any integer or floating point value and <span class="emph">x<sub>n</sub></span> is the unknown variable represented by a single character variable.<br>
+						Eneter your constraints using the format:
+						<span class="emph">a<sub>i1</sub>x<sub>1</sub> + a<sub>i2</sub>x<sub>2</sub> + ... * a<sub>in</sub>x<sub>n</sub> <= b</span><br>
+						where <span class="emph">a<sub>ij</sub></span> is the numerical coefficient represented by any integer or floating point value and <span class="emph">b<sub>ij</sub></span> is the value of the constraints. Write each constraints separated by new line.
 					</div>
 					<div id="goal-wrapper" class="col s12 section">
 						<button ng-click="doSimplex(0)">Minimize</button>
@@ -79,37 +122,45 @@
 
 			  			<div class="col s10">
 			  				<div class="row">
+					  			<div class="col s2">
+					  				<div id="selection">
+						  				<button class="btn" ng-click="toggleAllStation(true)">Select all</button>
+						  				<button class="btn" ng-click="toggleAllStation(talse)">Remove all</button>
+					  				</div>
+					  			</div>
 					  			<div class="col s2 station-element"
 					  				 ng-repeat="station in stations.stations">
 					  				<stations station="station" 
 					  					ng-click="toggleStation($index)"
 					  				></stations>
 					  			</div>
-					  			<div class="col s2">
-					  				<div class="card">Select all</div>
-					  			</div>
 			  				</div>
 			  			</div>
 
 						<div class="col s2">
+							<div id="month-panel" class="section">
 							<h6 class="grey-text">Month Concern</h6>
 			  				<h5>{{ activeMonth }}</h5>
-			  				<div class="card-content section">
-								<a class='dropdown-button btn'
-								   href='#'
-								   data-activates='dropdown1'>
-								   change
-								</a>
-								<ul id='dropdown1' class='dropdown-content'>
-									<li ng-repeat="month in stations.months">
-								    	<a href="#!" ng-click="setMonth($index)">
-								    		{{ month }}
-								    	</a>
-							   		</li>
-								</ul>
+				  				<div class="card-content section">
+									<a class='dropdown-button btn'
+									   href='#'
+									   data-activates='dropdown1'>
+									   change
+									</a>
+									<ul id='dropdown1' class='dropdown-content'>
+										<li ng-repeat="month in stations.months">
+									    	<a href="#!" ng-click="setMonth($index)">
+									    		{{ month }}
+									    	</a>
+								   		</li>
+									</ul>
+				  				</div>
 			  				</div>
-			  				<div>
+			  				<div class="divider"></div>
+			  				<div id="tab2-command" class="section">
 			  					<button class="btn" ng-click="exportData()">Export</button>
+			  					<button class="btn" ng-click="showResult()">RESULTS</button>
+
 			  				</div>
 						</div>
 

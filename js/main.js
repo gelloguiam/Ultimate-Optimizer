@@ -4,6 +4,10 @@ $(document).ready(function(){
 		$('ul.tabs').tabs();
 	});
 
+	$("#exit-hover").click(function(){
+		$("#hover-panel").slideUp();
+	});
+
 	$(".button-collapse").sideNav({
 		menuWidth: 500,
 		edge: 'right'
