@@ -293,19 +293,6 @@ ulopt.controller('MainController', function($scope, $http) {
 		}
 	}
 
-	$scope.parse = function(){
-		var objective = $scope.objectiveFunction;
-		$scope.objectiveFunction = objective.replace(" ", ",");
-		console.log($scope.objectiveFunction);
-		console.log($scope.constraintsSet);
-
-	}
-
-	$scope.doSimplex = function(goal) {
-		/* goal == 0 minimize
-		   goal == 1 maximize */
-		$scope.parse();
-	}
 
 	$scope.focusComponent = function(index) {
 		var elements = [];
@@ -329,8 +316,31 @@ ulopt.controller('MainController', function($scope, $http) {
 	}
 
 
-	$scope.exportUltimateOptimizer = function() {
+	$scope.exportUltimateOptimizer = function(goal) {
+		/* goal = true MINIMIZE
+		   goal = false MAXIMIZE */
+		var csvContent = "data:text/csv;charset=utf-8,";
+		var data = $scope.objectiveFunction;
+		var constraints = $scope.constraintsSet;
 
+		//split constraints per line
+		constraints = constraints.split("\n");
+		csvContent += constraints.length + "\n";
+
+		if(goal) csvContent+="minimize\n";
+		else csvContent +="maximize\n";
+
+		csvContent += data + "\n";
+
+		for(var i=0; i<constraints.length; i++) {
+			csvContent += constraints[i] + "\n";
+		}
+
+		var encodedUri = encodeURI(csvContent);
+		var link = document.createElement("a");
+		link.setAttribute("href", encodedUri);
+		link.setAttribute("download", "data.txt");
+		link.click();
 	}
 
 });

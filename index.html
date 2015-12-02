@@ -78,11 +78,11 @@
 						<div class="row">
 					        <div>
 					        	<label>Objective Function</label>
-					        	<input value="" type="text" class="validate" placeholder="Z = 2a + 3b + 6c" ng-model="objectiveFunction">
+					        	<input value="" type="text" class="validate" placeholder="2a + 3b + 6c = z" ng-model="objectiveFunction">
 					        </div>
 					        <div>	
 					        	<label>Constraints</label>
-					        	<textarea ng-model="constraintsSet" placeholder="5a + 2b <= 200"></textarea>
+					        	<textarea ng-model="constraintsSet" placeholder="5a + 2b + 0c <= 200"></textarea>
 					        </div>
 					    </div>
 					</div>
@@ -91,15 +91,15 @@
 					<div class="col s12" id="instruction">
 						<span class="emph">Instruction:</span><br>
 						Eneter your objective function using the format:
-						<span class="emph"> Z = c<sub>1</sub>x<sub>1</sub> + c<sub>2</sub>x<sub>2</sub> + ... * c<sub>n</sub>x<sub>n</sub></span><br>
+						<span class="emph">c<sub>1</sub>x<sub>1</sub> + c<sub>2</sub>x<sub>2</sub> + ... * c<sub>n</sub>x<sub>n</sub> = z</span><br>
 						where <span class="emph">c<sub>n</sub></span> is the numerical coefficient represented by any integer or floating point value and <span class="emph">x<sub>n</sub></span> is the unknown variable represented by a single character variable.<br>
 						Eneter your constraints using the format:
 						<span class="emph">a<sub>i1</sub>x<sub>1</sub> + a<sub>i2</sub>x<sub>2</sub> + ... * a<sub>in</sub>x<sub>n</sub> <= b</span><br>
 						where <span class="emph">a<sub>ij</sub></span> is the numerical coefficient represented by any integer or floating point value and <span class="emph">b<sub>ij</sub></span> is the value of the constraints. Write each constraints separated by new line.
 					</div>
 					<div id="goal-wrapper" class="col s12 section">
-						<button ng-click="doSimplex(0)">Minimize</button>
-						<button ng-click="doSimplex(1)">Maximize</button>
+						<button ng-click="exportUltimateOptimizer(true)">Minimize</button>
+						<button ng-click="exportUltimateOptimizer(false)">Maximize</button>
 					</div>
 				</div>
 			</div>

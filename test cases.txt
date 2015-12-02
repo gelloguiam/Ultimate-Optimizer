@@ -1,0 +1,37 @@
+(a)
+Maximize
+1a + 2b + 1c - 1d = z
+
+1a + 1b + 2c + 4d <= 60
+01 + 1b + 2c + 5d <= 50
+2a + 3b + 0c + 6d <= 72
+
+(b)
+Minimize
+1a + 0.5b + 2.5c + 3d = z
+
+1.5a + 1b + 0c 1d >= 35
+0a + 2b + 6c + 4d >= 120
+1a + 1b + 1c + 1d >= 50
+0.5a + 0b + 2.5c + 1.5d >= 75
+
+(c)
+Minimize
+1.5a + 1b + 0.5c + 2d = z
+
+1.5a + 1b + 1c + 1d >= 35
+0a + 2b + 6c + 4d >= 120
+1a + 1b + 1c + 1d >= 50
+0.5a + 0b + 2.5c + 1.5d >= 75
+
+(d)
+RQM Stations:
+McArthur Bridge
+McArthur Bridge II
+
+(e)
+RQM Stations: 
+500m to MeyMZ
+Caingin Bridge
+Meymart Bridge
+Viente Reales Bridge
